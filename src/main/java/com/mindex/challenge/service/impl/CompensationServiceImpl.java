@@ -22,7 +22,7 @@ public class CompensationServiceImpl implements CompensationService {
 
 
     public Compensation create(Compensation compensation) {
-        LOG.debug("Creating compensation entry [{}]", compensation); //TODO
+        LOG.debug("Creating compensation entry [{}]", compensation);
 
         if (employeeRepository.findByEmployeeId(compensation.getEmployeeId()) == null) {
             // Composition is a weak entity and must have an existing employee to link to.
@@ -34,7 +34,7 @@ public class CompensationServiceImpl implements CompensationService {
     }
 
     public Compensation read(String id) {
-        LOG.debug("Creating compensation entry [{}]", id); //TODO
+        LOG.debug("Reading compensation from employee with id: [{}]", id); 
         Compensation compensation = compensationRepository.findCompensationByEmployeeId(id);
 
         if (compensation == null) {

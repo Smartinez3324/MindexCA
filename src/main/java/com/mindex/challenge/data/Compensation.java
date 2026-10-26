@@ -19,4 +19,16 @@ public class Compensation {
     public String getEffectiveDate() {
         return effectiveDate;
     }
+
+    public void setEffectiveDate(String effectiveDate) {
+        this.effectiveDate = effectiveDate;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
 }
