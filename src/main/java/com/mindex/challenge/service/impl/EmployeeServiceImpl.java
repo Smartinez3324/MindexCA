@@ -2,12 +2,16 @@ package com.mindex.challenge.service.impl;
 
 import com.mindex.challenge.dao.EmployeeRepository;
 import com.mindex.challenge.data.Employee;
+import com.mindex.challenge.data.ReportingStructure;
 import com.mindex.challenge.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.UUID;
+
+import java.util.List;
+import java.util.Queue;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -46,4 +50,33 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return employeeRepository.save(employee);
     }
+    
+    @Override
+    public ReportingStructure getReportNumber(String id) {
+        // LOG.debug("Getting number of employees that report to [{}]", employee);
+        Employee employee = employeeRepository.findByEmployeeId(id);
+        int reportsCnt = getTotalReports(employee);
+        return new ReportingStructure(employee, reportsCnt);
+    }
+
+    private int getTotalReports(Employee employee) {
+
+        List<Employee> reporters = employee.getDirectReports();
+        if (reporters == null){
+            return 0; 
+        }
+
+        int reporterCnt = 0;
+
+        for (Employee reporter : reporters) {
+            reporter = employeeRepository.findByEmployeeId(reporter.getEmployeeId());
+            reporterCnt++;
+            if (reporter.getDirectReports() != null) {
+                reporterCnt+=getTotalReports(reporter);
+            }
+        }
+
+        return reporterCnt;
+    }
+
 }
