@@ -1,0 +1,19 @@
+(Project description)
+can you give me a rundown of what each file is doing? (Passed in codding assesment files)
+
+(Understanding Spring Framework and Gradle)
+what does autowired mean?
+where is it outlined that bootRun is a gradle command?
+can you discribe the layout of a spring boot aplication? what are all the @ annotated sections doing?
+does this just automatically make the employee service with a random implementation? (Talking about autowired)
+so what if i want the repository to insert a value? (Takling about the repositories in spring)
+how does spring know how to translate the employee into json? (when returning the object from the controller)
+
+generate a gitignore for this project
+using the controller tests for Emoployee, can you generate me some test that cover all the functionality of the
+reporting structure API
+does defining a repository just make a mongodb collection?
+generate me a curl post command to test compensation endpoints
+generate me some test cases for compensation 
+
+
