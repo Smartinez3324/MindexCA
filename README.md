@@ -23,6 +23,10 @@ The following endpoints are available to use:
     * HTTP Method: GET 
     * URL: localhost:8080/employee/{id}
     * RESPONSE: Employee
+* READ 
+    * HTTP Method: GET 
+    * URL: localhost:8080/employee/{id}/reportingstructure
+    * RESPONSE: ReportingStructure 
 * UPDATE
     * HTTP Method: PUT 
     * URL: localhost:8080/employee/{id}
