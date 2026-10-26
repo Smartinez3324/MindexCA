@@ -52,9 +52,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     
     @Override
     public ReportingStructure getReportNumber(String id) {
-        // LOG.debug("Getting number of employees that report to [{}]", employee);
+        LOG.debug("Getting number of reporters for employee with id: [{}]", id);
+
         Employee employee = employeeRepository.findByEmployeeId(id);
         int reportsCnt = getTotalReports(employee);
+
         return new ReportingStructure(employee, reportsCnt);
     }
 
